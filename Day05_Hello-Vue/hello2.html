@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+    <input type="text" v-model="message">
+    <hr>
+    <button @click="num++">点我呀</button>
+    {{num}}
+    <hr>
+    <!--使用定义好的全局组件-->
+    <counter></counter>
+    <counter></counter>
+    <counter></counter><br>
+    <counter22></counter22>
+</div>
+</body>
+<script src="./node_modules/vue/dist/vue.js"></script>
+<script>
+    Vue.component("counter", {
+        template: '<button @click="count++">你点了我 {{ count }} 次，我记住了.</button>',
+        data() {
+            return {
+                count: 0
+            }
+        }
+    })
+
+    let counter2 = {
+        template: '<button @click="count++">你点了我 {{ count }} 次，我记住了.</button>',
+        data() {
+            return {
+                count: 2
+            }
+        }
+    }
+
+    let vm = new Vue({
+        el: "#app",
+        data: {
+            message: "",
+            num: 2,
+        },
+        components: {
+            counter22: counter2
+        }
+        ,
+        watch: {
+            message(newVal, oldVal) {
+                console.log(newVal, oldVal);
+            }
+        }
+    })
+</script>
+</html>

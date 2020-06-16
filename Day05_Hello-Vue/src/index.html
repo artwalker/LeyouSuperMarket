@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <span><router-link to="/login">登录</router-link></span>
+    <span><router-link to="/register">注册</router-link></span>
+    <hr/>
+    <div>
+<!--        <login-form></login-form>-->
+<!--        <register-form></register-form>-->
+        <router-view></router-view>
+    </div>
+</div>
+</body>
+<script src="../node_modules/vue/dist/vue.js"></script>
+<script src="../node_modules/vue-router/dist/vue-router.js"></script>
+<script src="../user/login.js"></script>
+<script src="../user/register.js"></script>
+<script>
+    const router = new VueRouter({
+        routes:[{
+            path:"/login", // 请求路径，以“/”开头
+            component:loginForm
+        },
+            {
+                path: "/register",
+                component: registerForm
+            }
+        ]
+    })
+    var vm = new Vue({
+        el: "#app",
+        // components: {
+        //     loginForm,
+        //     registerForm
+        // },
+        router
+    })
+</script>
+</html>

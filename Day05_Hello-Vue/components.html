@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <h1>打个招呼：</h1>
+    <introduce word="大家好，我是星哥"></introduce>
+    <hr>
+    <my :items="lessons"></my>
+    <hr>
+    <h2>num: {{num}}</h2>
+    <!--使用子组件的时候，传递num到子组件中--><br>
+    <counter :count="num" v-on:inc="increment" @dec="decrement"></counter>
+</div>
+</body>
+<script src="./node_modules/vue/dist/vue.js"></script>
+<script>
+    Vue.component("counter", {
+        template:'\
+                <div>\
+                    <button @click="plus">加</button>  \
+                    <button @click="reduce">减</button>  \
+                </div>',
+        props:['count'],
+        methods:{
+            plus(){
+                this.$emit("inc");
+            },
+            reduce(){
+                this.$emit("dec");
+            }
+        }
+    })
+
+    Vue.component("counter2",{// 子组件，定义了两个按钮，点击数字num会加或减
+        template:'\
+            <div>\
+                <button @click="num++">加</button>  \
+                <button @click="num--">减</button>  \
+            </div>',
+        props: ['num']// count是从父组件获取的。
+    })
+
+    Vue.component("introduce", {
+        // 直接使用props接收到的属性来渲染页面
+        template: '<h1>{{word}}</h1>',
+        props: ['word'] // 通过props来接收一个父组件传递的属性
+    })
+
+    const myList = {
+        template: '\
+     <ul>\
+     		<li v-for="item in items" :key="item.id">{{item.id}} : {{item.name}}}</li>\
+     </ul>\
+     ',
+        props: {
+            items: {
+                type: Array,
+                default: [],
+                required: true
+            }
+        }
+    }
+
+    var app = new Vue({
+        el: "#app",
+        components: {
+            my: myList // 当key和value一样时，可以只写一个
+        },
+        data: {
+            lessons: [
+                {id: 1, name: 'java'},
+                {id: 2, name: 'php'},
+                {id: 3, name: 'ios'}
+            ],
+            num: 0
+        },
+        methods: {
+            increment(){ this.num++;},
+            decrement(){ this.num--;}
+        }
+    })
+</script>
+</html>
