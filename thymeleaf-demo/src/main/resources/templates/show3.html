@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>
+    今天是: <span th:text="${#dates.format(today,'yyyy-MM-dd')}">2018-04-25</span>
+</p>
+</body>
+</html>
