@@ -47,7 +47,7 @@ CDN
   - 后台系统会采用前后端分离开发，而且整个后台管理系统会使用Vue.js框架搭建出单页应用（SPA）。
   - 预览图：
 
-  https://github.com/artwalker/LeyouSuperMarket/blob/master/MDPic/1528098418861.png
+  ![预览图](https://github.com/artwalker/LeyouSuperMarket/blob/master/MDPic/1528098418861.png)
 
 - 前台门户
 
@@ -58,7 +58,7 @@ CDN
     - 评价商品等等
   - 前台系统我们会使用Nuxt结合Vue完成页面开发。出于SEO优化的考虑，我们将不采用单页应用。
 
-  https://github.com/artwalker/LeyouSuperMarket/blob/master/MDPic/1525704277126.png
+![](https://github.com/artwalker/LeyouSuperMarket/blob/master/MDPic/1525704277126.png)
 
 无论是前台还是后台系统，都共享相同的微服务集群，包括：
 
