@@ -26,7 +26,7 @@
 
 DevOps
 
-https://github.com/artwalker/LeyouSuperMarket/blob/master/MDPic/lysc.png
+![乐优商城架构缩略图](https://github.com/artwalker/LeyouSuperMarket/blob/master/MDPic/lysc.png)
 
 nginx的负载均衡
 
